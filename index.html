@@ -4,20 +4,32 @@
     <title>Bootstrap Theme Company</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script>
         function afficheCalcul() {
             document.getElementById("resultat").style.visibility = "hidden";
-            var nombre1 = Math.floor(Math.random() * 256);
-            var nombre2 = Math.floor(Math.random() * 256);
-            var correction = nombre1 + nombre2;
+            var nombre1 = Math.floor(Math.random() * 50);
+            var nombre2 = Math.floor(Math.random() * 50);
+            document.getElementById("firstNumber").innerHTML = nombre1;
+            document.getElementById("secondNumber").innerHTML = nombre2;
+            document.getElementById("calcul").style.visibility = "visible";
+/*            var correction = nombre1 + nombre2;
             document.getElementById("calculAFaire").innerHTML = "" + nombre1 + "+" + nombre2;
-            document.getElementById("resultat").innerHTML = "Le résultat était " + correction;
-            document.getElementById("calculAFaire").value = "";
+            document.getElementById("resultat").innerHTML = "Le résultat était " + correction;*/
+            document.getElementById("reponseUser").value = "";
         }
 
         function afficheReponse() {
+            var nombre1 = parseInt(document.getElementById("firstNumber").innerHTML);
+            var nombre2 = parseInt(document.getElementById("secondNumber").innerHTML);
+            var userInput = document.getElementById("reponseUser").value;
+            if (userInput != nombre1+nombre2){
+                document.getElementById("resultat").innerHTML = "Faux! La réponse était " + (nombre1+nombre2);
+                document.getElementById("resultat").style.color = "red";
+            } else {
+                document.getElementById("resultat").innerHTML = "Bonne réponse!";
+                document.getElementById("resultat").style.color = "green";
+            }
             document.getElementById("resultat").style.visibility = "visible";
         }
 
@@ -27,10 +39,14 @@
 
 <div class="jumbotron text-center">
     <h1 id="calculAFaire"></h1>
+    <div id="calcul" style="visibility: hidden;">
+        <h2><b id="firstNumber"> </b>+<b id="secondNumber"> </b></h2>
+    </div>
     <button type="button" onclick="afficheCalcul()">Nouveau calcul</button>
 
     <div class="input-group">
-        <input type="number" id="reponseUser" class="form-control" size="12" placeholder="Votre réponse" name="reponseUser">
+        <input type="number" id="reponseUser" class="form-control" size="12" placeholder="Votre réponse"
+               name="reponseUser">
         <div class="input-group-btn">
             <button onclick="afficheReponse()" class="btn btn-danger">Envoyer</button>
         </div>
