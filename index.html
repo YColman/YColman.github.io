@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Theme Company</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script>
+        function afficheCalcul() {
+            document.getElementById("resultat").style.visibility = "hidden";
+            var nombre1 = Math.floor(Math.random() * 256);
+            var nombre2 = Math.floor(Math.random() * 256);
+            var correction = nombre1 + nombre2;
+            document.getElementById("calculAFaire").innerHTML = "" + nombre1 + "+" + nombre2;
+            document.getElementById("resultat").innerHTML = "Le résultat était " + correction;
+            document.getElementById("calculAFaire").value = "";
+        }
+
+        function afficheReponse() {
+            document.getElementById("resultat").style.visibility = "visible";
+        }
+
+    </script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+    <h1 id="calculAFaire"></h1>
+    <button type="button" onclick="afficheCalcul()">Nouveau calcul</button>
+
+    <div class="input-group">
+        <input type="number" id="reponseUser" class="form-control" size="12" placeholder="Votre réponse" name="reponseUser">
+        <div class="input-group-btn">
+            <button onclick="afficheReponse()" class="btn btn-danger">Envoyer</button>
+        </div>
+    </div>
+    <div id="resultat">
+
+    </div>
+</div>
+
+
+</body>
+
+
+</html>
