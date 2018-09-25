@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Theme Company</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="scripts/scriptsIndex.js"></script>
+   
+</head>
+<body>
+
+<div class="jumbotron text-center">
+    <h1 id="calculAFaire"></h1>
+    <button type="button" onclick="afficheCalcul()">Nouveau calcul</button>
+    <br>
+    <br>
+
+
+    <div class="input-group">
+        <input type="number"  id="reponseUser"  width="20%" size="5" placeholder="Votre réponse" style="font-size:25px; display:inline" required name="reponseUser">
+        <div class="input-group-btn">
+            <button onclick="afficheReponse()" class="btn btn-danger" style="margin-right: 20%;" id="boutonValiderCalcul">Envoyer</button>
+        </div>
+    </div>
+    <div id="resultat" >
+
+    </div>
+    <div id="correction" >
+
+    </div>
+</div>
+
+
+</body>
+
+
+</html>
