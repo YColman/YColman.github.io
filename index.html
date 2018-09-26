@@ -9,19 +9,20 @@
     <script src="scripts/scriptsIndex.js"></script>
    
 </head>
-<body>
+<body style="background-color: #eee">
 
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     <h1 id="calculAFaire"></h1>
     <button type="button" onclick="afficheCalcul()">Nouveau calcul</button>
     <br>
     <br>
 
 
-    <div class="input-group">
-        <input type="number"  id="reponseUser"  width="20%" size="5" placeholder="Votre réponse" style="font-size:25px; display:inline" required name="reponseUser">
+    <div class="input-group" style="display:inline-flex">
+        <input type="number"  id="reponseUser" placeholder="Votre réponse" style="font-size:20px; display:inline; margin-bottom:5px; padding: 5px; width: 200px; height: 35px;" required name="reponseUser">
+
         <div class="input-group-btn">
-            <button onclick="afficheReponse()" class="btn btn-danger" style="margin-right: 20%;" id="boutonValiderCalcul">Envoyer</button>
+            <button onclick="afficheReponse()" class="btn btn-danger" style="height: 35px;" id="boutonValiderCalcul">Envoyer</button>
         </div>
     </div>
     <div id="resultat" >
