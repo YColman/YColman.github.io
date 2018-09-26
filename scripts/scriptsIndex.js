@@ -44,7 +44,7 @@ function afficheReponse() {
             document.getElementById("boutonValiderCalcul").style.visibility = "hidden";
             //essais = 0;
         }else{
-            document.getElementById("resultat").innerHTML = "<p style="+"font-size:25;color:red>Raté essaie encore ! Il te reste "+essais</p>";
+            document.getElementById("resultat").innerHTML = "<p style="+"font-size:25;color:red>Raté essaie encore !</p>";
             
             essais = essais + 1;
             
