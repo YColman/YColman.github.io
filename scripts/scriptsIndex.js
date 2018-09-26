@@ -1,3 +1,9 @@
+document.addEventListener('keypress', function (e) {
+    if (e.keyCode == 13) {
+        afficheReponse();
+    }
+}, false);
+
 function afficheCalcul() {
     document.getElementById("reponseUser").value = null;
     document.getElementById("reponseUser").style.visibility = "visible";
