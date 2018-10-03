@@ -7,8 +7,8 @@ var nbEnterPress = 0;
 // }, false);
 
 document.addEventListener('keypress', function (e) {
-    console.log("Nombre de fois touche 'entrée': " + nbEnterPress);
     if (e.keyCode == 13) {
+        console.log("Nombre de fois touche 'entrée': " + nbEnterPress);
         document.getElementById("reponseUser").focus();
         if (nbEnterPress == 0) {
             afficheCalcul();
@@ -37,7 +37,6 @@ function afficheCalcul() {
     document.getElementById("reponseUser").focus();
 
 
-
 }
 
 var essais = 0;
@@ -53,6 +52,7 @@ function afficheReponse() {
     text = x.value;
     var reponse = document.getElementById("correction").innerHTML
     if (reponse == text) {
+        console.log("On arrive bien à trouver la solution");
         document.getElementById("resultat").innerHTML = "<p style=" + "font-size:25;color:green> Bravo, vous avez trouvé ! </p>";
         document.getElementById("reponseUser").style.visibility = "hidden";
         document.getElementById("boutonValiderCalcul").style.visibility = "hidden";
