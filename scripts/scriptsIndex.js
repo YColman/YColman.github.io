@@ -35,6 +35,7 @@ function afficheCalcul() {
     document.getElementById("correction").innerHTML = correction;
     document.getElementById("calculAFaire").value = "";
     document.getElementById("reponseUser").focus();
+    essais=0;
 
 
 }
