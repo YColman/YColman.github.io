@@ -56,6 +56,7 @@ function afficheReponse() {
         document.getElementById("resultat").innerHTML = "<p style=" + "font-size:25;color:green> Bravo, vous avez trouvé ! </p>";
         document.getElementById("reponseUser").style.visibility = "hidden";
         document.getElementById("boutonValiderCalcul").style.visibility = "hidden";
+        essais=0;
     } else {
         //console.log(reponse);
         if (essais == 3) {
