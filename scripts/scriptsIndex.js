@@ -52,6 +52,7 @@ function afficheReponse() {
         if (essais == 3) {
             document.getElementById("resultat").innerHTML = "<p style=" + "font-size:25;color:red>Raté, le résultat était " + reponse + "</p>";
             document.getElementById("boutonValiderCalcul").style.visibility = "hidden";
+            document.getElementById("reponseUser").style.visibility = "hidden";
             essais = 0;
         } else {
             document.getElementById("resultat").innerHTML = "<p style=" + "font-size:25;color:red>Raté essaie encore !</p>";
