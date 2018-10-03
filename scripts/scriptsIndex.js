@@ -1,8 +1,15 @@
 var nbEnterPress = 0;
 
+// document.addEventListener('keypress', function (e) {
+//     if (e.keyCode >= 0 && e.keyCode <= 9) {
+//         document.getElementById("reponseUser").focus();
+//     }
+// }, false);
+
 document.addEventListener('keypress', function (e) {
-    console.log("Nombre de fois touche 'entrée': "+nbEnterPress);
+    console.log("Nombre de fois touche 'entrée': " + nbEnterPress);
     if (e.keyCode == 13) {
+        document.getElementById("reponseUser").focus();
         if (nbEnterPress == 0) {
             afficheCalcul();
         } else if (nbEnterPress == 1 || nbEnterPress == 2 || nbEnterPress == 3) {
@@ -27,6 +34,8 @@ function afficheCalcul() {
     document.getElementById("calculAFaire").innerHTML = "" + nombre1 + "+" + nombre2;
     document.getElementById("correction").innerHTML = correction;
     document.getElementById("calculAFaire").value = "";
+    document.getElementById("reponseUser").focus();
+
 
 
 }
@@ -38,7 +47,7 @@ function afficheReponse() {
 
 
     //var essais;
-    console.log("Nombre d'essais: "+essais);
+    console.log("Nombre d'essais: " + essais);
     var x = document.getElementById("reponseUser");
     var text;
     text = x.value;
