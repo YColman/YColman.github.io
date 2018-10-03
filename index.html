@@ -19,10 +19,10 @@
 
 
     <div class="input-group" style="display:inline-flex">
-        <input type="number"  id="reponseUser" placeholder="Votre réponse" style="font-size:20px; display:inline; margin-bottom:5px; padding: 5px; width: 200px; height: 35px;" required name="reponseUser">
+        <input style="visibility: hidden" type="number"  id="reponseUser" placeholder="Votre réponse" style="font-size:20px; display:inline; margin-bottom:5px; padding: 5px; width: 200px; height: 35px;" required name="reponseUser">
 
         <div class="input-group-btn">
-            <button onclick="afficheReponse()" class="btn btn-danger" style="height: 35px;" id="boutonValiderCalcul">Envoyer</button>
+            <button style="visibility: hidden" onclick="afficheReponse()" class="btn btn-danger" style="height: 35px;" id="boutonValiderCalcul">Envoyer</button>
         </div>
     </div>
     <div id="resultat" >
