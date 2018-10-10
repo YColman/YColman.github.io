@@ -12,6 +12,20 @@
 <body style="background-color: #eee">
 
 <div class="jumbotron text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    
+    <div id=typeOperation style="border:solid 5px;">
+        <div> 
+            Quel type d'exercice veux-tu réaliser ? <br><br>
+            <input type="radio" name="operation" value="+" >Addition <br>
+            <input type="radio" name="operation" value="-">Soustraction <br>
+            <input type="radio" name="operation" value="x">Multiplication <br>
+            <input id="hasard" type="checkbox" name="opeHasard" value="random">nombres au hasard<br><br>
+            Quelle table veux-tu réviser ? <br><br>
+            <input type="number" name="tableAFaire" min="0" max="9">            
+        </div>
+    </div>
+    
+    
     <h1 id="calculAFaire"></h1>
     <button id="newCalcul" type="button" onclick="afficheCalcul()">Nouveau calcul</button>
     <br>
