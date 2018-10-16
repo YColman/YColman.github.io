@@ -35,7 +35,7 @@ function afficheCalcul() {
             break;
         }
     }
-    if(document.getElementById("hasard").checked){
+    if(document.getElementById("hasard").checked && (document.getElementById("add").checked || document.getElementById("sou").checked || document.getElementById("mul").checked)){
         
         document.getElementById("newCalcul").style.visibility = "hidden";
         document.getElementById("reponseUser").value = null;
@@ -65,30 +65,54 @@ function afficheCalcul() {
         document.getElementById("calculAFaire").value = "";
         document.getElementById("reponseUser").focus();
         essais=0;
-    }else{
-        var table = document.getElementById("table");
-        switch(table){
-            case "0":
-                for(var j = 0; j < 10; j++){
-                    var multiplicat = j;
-                    document.getElementById("newCalcul").style.visibility = "hidden";
-                    document.getElementById("reponseUser").value = null;
-                    document.getElementById("reponseUser").style.visibility = "visible";
-                    document.getElementById("boutonValiderCalcul").style.visibility = "visible";
-                    document.getElementById("resultat").style.visibility = "hidden";
-                    document.getElementById("correction").style.visibility = "hidden";
-                    
-                }
+    }else if(document.getElementById("table").value != ''){
+        var table = document.getElementById("table").value;
+
+        function tableMult(){
+            multiplicat = Math.floor(Math.random() * 9) + 1;
+            document.getElementById("newCalcul").style.visibility = "hidden";
+            document.getElementById("reponseUser").value = null;
+            document.getElementById("reponseUser").style.visibility = "visible";
+            document.getElementById("boutonValiderCalcul").style.visibility = "visible";
+            document.getElementById("resultat").style.visibility = "hidden";
+            document.getElementById("correction").style.visibility = "hidden";
+            document.getElementById("calculAFaire").innerHTML = "" + table +" "+ "x" +" "+ multiplicat;
+            document.getElementById("correction").innerHTML = table * multiplicat;
+            document.getElementById("calculAFaire").value = "";
+            document.getElementById("reponseUser").focus();
+        }
+
+        switch(true){
+            case table == 0:
+                tableMult();
                 break;
-            case "1":
-            case "2":
-            case "3":
-            case "4":
-            case "5":
-            case "6":
-            case "7":
-            case "8":
-            case "9":
+            case table == 1:
+                tableMult();
+                break;
+            case table == 2:
+                tableMult();
+                break;
+            case table == 3:
+                tableMult();
+                break;
+            case table == 4:
+                tableMult();
+                break;
+            case table == 5:
+                tableMult();
+                break;
+            case table == 6:
+                tableMult();
+                break;
+            case table == 7:
+                tableMult();
+                break;
+            case table == 8:
+                tableMult();
+                break;
+            case table == 9:
+                tableMult();
+                break;
         }
     }
 
