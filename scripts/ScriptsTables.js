@@ -3,12 +3,6 @@ var essais = 0;
 
 
 
-// document.addEventListener('keypress', function (e) {
-//     if (e.keyCode >= 0 && e.keyCode <= 9) {
-//         document.getElementById("reponseUser").focus();
-//     }
-// }, false);
-
 document.addEventListener('keypress', function (e) {
     if (e.keyCode == 13) {
         console.log("Nombre de fois touche 'entrée': " + nbEnterPress);
@@ -41,54 +35,51 @@ function afficheCalcul() {
             break;
         }
     }
-    if (document.getElementById("hasard").checked && (document.getElementById("add").checked || document.getElementById("sou").checked || document.getElementById("mul").checked)) {
 
+    document.getElementById("newCalcul").style.visibility = "hidden";
+    document.getElementById("reponseUser").value = null;
+    document.getElementById("reponseUser").style.visibility = "visible";
+    document.getElementById("boutonValiderCalcul").style.visibility = "visible";
+    document.getElementById("resultat").style.visibility = "hidden";
+    document.getElementById("correction").style.visibility = "hidden";
+
+
+    var table = document.getElementById("table").value;
+
+    function tableAdd() {
+        addit = Math.floor(Math.random() * 9) + 1;
         document.getElementById("newCalcul").style.visibility = "hidden";
         document.getElementById("reponseUser").value = null;
         document.getElementById("reponseUser").style.visibility = "visible";
         document.getElementById("boutonValiderCalcul").style.visibility = "visible";
         document.getElementById("resultat").style.visibility = "hidden";
         document.getElementById("correction").style.visibility = "hidden";
-        var nombre1 = Math.floor(Math.random() * 50);
-        var nombre2 = Math.floor(Math.random() * 50);
-
-        switch (operation) {
-            case "+":
-                var correction = nombre1 + nombre2;
-                break;
-            case "-":
-                var correction = nombre1 - nombre2;
-                break;
-            case "x":
-                var correction = nombre1 * nombre2;
-                break;
-        }
-
-
-
-        document.getElementById("calculAFaire").innerHTML = "" + nombre1 + " " + operation + " " + nombre2;
-        document.getElementById("correction").innerHTML = correction;
+        document.getElementById("calculAFaire").innerHTML = "" + table + " " + "+" + " " + addit;
+        document.getElementById("correction").innerHTML = table + addit;
         document.getElementById("calculAFaire").value = "";
         document.getElementById("reponseUser").focus();
-        essais = 0;
-    } else if (document.getElementById("table").value != '') {
-        var table = document.getElementById("table").value;
+        console.log("ceci est une addition dont le résultat est : "+table)
+    }
+    function tableMult() {
+        multiplicat = Math.floor(Math.random() * 9) + 1;
+        document.getElementById("newCalcul").style.visibility = "hidden";
+        document.getElementById("reponseUser").value = null;
+        document.getElementById("reponseUser").style.visibility = "visible";
+        document.getElementById("boutonValiderCalcul").style.visibility = "visible";
+        document.getElementById("resultat").style.visibility = "hidden";
+        document.getElementById("correction").style.visibility = "hidden";
+        document.getElementById("calculAFaire").innerHTML = "" + table + " " + "x" + " " + multiplicat;
+        document.getElementById("correction").innerHTML = table * multiplicat;
+        document.getElementById("calculAFaire").value = "";
+        document.getElementById("reponseUser").focus();
+    }
 
-        function tableMult() {
-            multiplicat = Math.floor(Math.random() * 9) + 1;
-            document.getElementById("newCalcul").style.visibility = "hidden";
-            document.getElementById("reponseUser").value = null;
-            document.getElementById("reponseUser").style.visibility = "visible";
-            document.getElementById("boutonValiderCalcul").style.visibility = "visible";
-            document.getElementById("resultat").style.visibility = "hidden";
-            document.getElementById("correction").style.visibility = "hidden";
-            document.getElementById("calculAFaire").innerHTML = "" + table + " " + "x" + " " + multiplicat;
-            document.getElementById("correction").innerHTML = table * multiplicat;
-            document.getElementById("calculAFaire").value = "";
-            document.getElementById("reponseUser").focus();
-        }
-
-        switch (true) {
+    if(operation == "x"){
+        tableMult();
+    }else if(operation == "+"){
+        tableAdd();
+    }
+        /*switch (true) {
             case table == 0:
                 tableMult();
                 break;
@@ -119,8 +110,8 @@ function afficheCalcul() {
             case table == 9:
                 tableMult();
                 break;
-        }
-    }
+        }*/
+    
 
 }
 

@@ -1,49 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Calcul Mental</title>
+    <title>Bootstrap Theme Company</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="scripts/scriptsIndex.js"></script>
-   
+    <script>
+        function choixTypeExo(){
+            
+            
+            var radios = document.getElementsByName('choixTypeExo');
+            if(radios[0].checked){
+                sessionStorage["choixExo"] = "tables";
+                window.location.href = "tables.html";
+            }else if(radios[1].checked){
+                sessionStorage["choixExo"] = "random";
+                window.location.href = "random.html";
+            }
+
+            
+        }
+    </script>
 </head>
-<body style="background-color: #eee">
+<body>
 
-<div class="jumbotron text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-    
-    <div id=typeOperation style="border:solid 5px;">
-        <div> 
-            Quel type d'exercice veux-tu réaliser ? <br><br>
-            <input id="add" type="radio" name="operation" value="+" >Addition <br>
-            <input id="sou" type="radio" name="operation" value="-">Soustraction <br>
-            <input id="mul" type="radio" name="operation" value="x">Multiplication <br>
-            <input id="hasard" type="checkbox" name="opeHasard" value="random">nombres au hasard<br><br>
-            Quelle table veux-tu réviser ? <br><br>
-            <input id="table" type="number" name="tableAFaire" min="0" max="9" value=''>            
-        </div>
+<div class="jumbotron text-center">
+    <p>Quel type d'exercice veux-tu choisir ?</p>
+    <div id="tables" class="radio">
+        <label><input type="radio" name="choixTypeExo" checked="checked"SS>Tables d'opérations</label>
+    </div>
+        
+    <div id="hasard" class="radio">
+        <label><input type="radio" name="choixTypeExo">Nombres aléatoires</label>
     </div>
     
-    
-    <h1 id="calculAFaire"></h1>
-    <button id="newCalcul" type="button" onclick="afficheCalcul()">Nouveau calcul</button>
-    <br>
-    <br>
-
-
-    <div class="input-group" style="display:inline-flex">
-        <input style="visibility: hidden" type="number"  id="reponseUser" placeholder="Votre réponse" style="font-size:20px; display:inline; margin-bottom:5px; padding: 5px; width: 200px; height: 35px;" required name="reponseUser">
-
-        <div class="input-group-btn">
-            <button style="visibility: hidden" onclick="afficheReponse()" class="btn btn-danger" style="height: 35px;" id="boutonValiderCalcul">Envoyer</button>
-        </div>
-    </div>
-    <div id="resultat" >
-
-    </div>
-    <div id="correction" >
-
-    </div>
+        <br>
+        <br>
+        <button class="btn btn-primary btn-lg" id="choixTypeExo" onclick="choixTypeExo()">Démarrer</button>
 </div>
 
 
