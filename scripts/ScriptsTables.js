@@ -21,6 +21,8 @@ document.addEventListener('keypress', function (e) {
 
 function afficheCalcul() {
 
+    nbEnterPress=1;
+    essais=0;
 
     //alert(sessionStorage["choixExo"]);
 
@@ -55,10 +57,11 @@ function afficheCalcul() {
         document.getElementById("resultat").style.visibility = "hidden";
         document.getElementById("correction").style.visibility = "hidden";
         document.getElementById("calculAFaire").innerHTML = "" + table + " " + "+" + " " + addit;
-        document.getElementById("correction").innerHTML = table + addit;
+        document.getElementById("correction").innerHTML = parseInt(table)+parseInt(addit);
         document.getElementById("calculAFaire").value = "";
         document.getElementById("reponseUser").focus();
-        console.log("ceci est une addition dont le résultat est : "+table)
+        var rep = parseInt(table)+parseInt(addit);
+        console.log("ceci est une addition dont le résultat est : "+rep)
     }
     function tableMult() {
         multiplicat = Math.floor(Math.random() * 9) + 1;
@@ -79,40 +82,6 @@ function afficheCalcul() {
     }else if(operation == "+"){
         tableAdd();
     }
-        /*switch (true) {
-            case table == 0:
-                tableMult();
-                break;
-            case table == 1:
-                tableMult();
-                break;
-            case table == 2:
-                tableMult();
-                break;
-            case table == 3:
-                tableMult();
-                break;
-            case table == 4:
-                tableMult();
-                break;
-            case table == 5:
-                tableMult();
-                break;
-            case table == 6:
-                tableMult();
-                break;
-            case table == 7:
-                tableMult();
-                break;
-            case table == 8:
-                tableMult();
-                break;
-            case table == 9:
-                tableMult();
-                break;
-        }*/
-    
-
 }
 
 
@@ -136,7 +105,7 @@ function afficheReponse() {
         essais = 0;
     } else {
         //console.log(reponse);
-        if (essais == 3) {
+        if (essais == 2) {
             document.getElementById("resultat").innerHTML = "<p style=" + "font-size:25;color:red>Raté, le résultat était " + reponse + "</p>";
             document.getElementById("boutonValiderCalcul").style.visibility = "hidden";
             document.getElementById("reponseUser").style.visibility = "hidden";

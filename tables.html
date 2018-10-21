@@ -16,9 +16,15 @@
     <div id=typeOperation style="border:solid 5px;">
         <div> 
             Quel type d'exercice veux-tu réaliser ? <br><br>
-            <input id="add" type="radio" name="operation" value="+" >Addition <br>
-            <input id="mul" type="radio" name="operation" value="x">Multiplication <br><br><br>
-            Quelle table veux-tu réviser ? <br><br>
+            <div class="radio">
+                <label><input id="add" type="radio" name="operation" value="+" >Addition</label>
+            </div>
+            <div class="radio">
+                <label><input id="mul" type="radio" name="operation" value="x">Multiplication</label> <br><br><br>
+                
+            </div>
+                Quelle table veux-tu réviser ? <br><br>
+            
             <input id="table" type="number" name="tableAFaire" min="0" max="9" value=''>            
         </div>
     </div>
@@ -43,6 +49,11 @@
     <div id="correction" >
 
     </div>
+    
+    <div class="input-group-btn">
+        <button class="btn btn-danger" style="height: 35px;"><a href="index.html" style="color:white;">Retour choix exercice</a></button>
+    </div>
+    
 </div>
 
 

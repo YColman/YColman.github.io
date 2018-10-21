@@ -22,6 +22,8 @@ document.addEventListener('keypress', function (e) {
 
 function afficheCalcul() {
 
+    nbEnterPress=1;
+    essais=0;
 
     //alert(sessionStorage["choixExo"]);
 
@@ -62,7 +64,7 @@ function afficheCalcul() {
     document.getElementById("correction").innerHTML = correction;
     document.getElementById("calculAFaire").value = "";
     document.getElementById("reponseUser").focus();
-    essais = 0;
+    
 
 
 }
@@ -86,6 +88,7 @@ function afficheReponse() {
         document.getElementById("boutonValiderCalcul").style.visibility = "hidden";
         document.getElementById("newCalcul").style.visibility = "visible";
         essais = 0;
+        nbEnterPress=0;
     } else {
         //console.log(reponse);
         if (essais == 3) {
@@ -101,5 +104,5 @@ function afficheReponse() {
 
         }
     }
-
+    
 }
