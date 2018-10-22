@@ -6,19 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script>
-        function choixTypeExo(){
-            
-            
+        function choixTypeExo() {
+
+            sessionStorage["resMultTabOk"] =0;
+            sessionStorage["resMultTabNO"]=0;
+            sessionStorage["resAddTabOk"]=0;
+            sessionStorage["resAddTabNO"]=0;
+            sessionStorage["resAddRandOK"] =0;
+            sessionStorage["resAddRandNO"]=0;
+            sessionStorage["resMultRandOk"]=0;
+            sessionStorage["resMultRandNO"]=0;
+            sessionStorage["resSousRandOK"]=0;
+            sessionStorage["resSousRandNO"]=0;
+
             var radios = document.getElementsByName('choixTypeExo');
-            if(radios[0].checked){
+            if (radios[0].checked) {
                 sessionStorage["choixExo"] = "tables";
                 window.location.href = "tables.html";
-            }else if(radios[1].checked){
+            } else if (radios[1].checked) {
                 sessionStorage["choixExo"] = "random";
                 window.location.href = "random.html";
             }
 
-            
+
         }
     </script>
 </head>
@@ -27,16 +37,19 @@
 <div class="jumbotron text-center">
     <p>Quel type d'exercice veux-tu choisir ?</p>
     <div id="tables" class="radio">
-        <label><input type="radio" name="choixTypeExo" checked="checked"SS>Tables d'opérations</label>
+        <label><input type="radio" name="choixTypeExo" checked="checked" SS>Tables d'opérations</label>
     </div>
-        
+
     <div id="hasard" class="radio">
         <label><input type="radio" name="choixTypeExo">Nombres aléatoires</label>
     </div>
-    
-        <br>
-        <br>
-        <button class="btn btn-danger" style="height: 35px;" id="choixTypeExo" onclick="choixTypeExo()">Démarrer</button>
+
+    <br>
+    <br>
+    <button class="btn btn-danger" style="height: 35px;" id="choixTypeExo" onclick="choixTypeExo()">Démarrer</button>
+    <br>
+    <br>
+
 </div>
 
 

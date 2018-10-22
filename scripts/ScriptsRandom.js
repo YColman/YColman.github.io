@@ -1,38 +1,44 @@
 var nbEnterPress = 0;
 var essais = 0;
 
+var resAddRandOK=0;
+var resAddRandNO=0;
+var resMultRandOk=0;
+var resMultRandNO=0;
+var resSousRandOK=0;
+var resSousRandNO=0;
+
+var radios = document.getElementsByName('operation');
+var operation;
 
 
 document.addEventListener('keypress', function (e) {
     if (e.keyCode == 13) {
         console.log("Nombre de fois touche 'entrée': " + nbEnterPress);
         document.getElementById("reponseUser").focus();
-        if (nbEnterPress == 0) {
+        if (nbEnterPress == 0||nbEnterPress == 1) {
             afficheCalcul();
-        } else if (nbEnterPress == 1 || nbEnterPress == 2 || nbEnterPress == 3) {
+        } else if ( nbEnterPress == 2 || nbEnterPress == 3 || nbEnterPress == 4) {
             afficheReponse();
-        } else if (nbEnterPress == 4) {
+        } else if (nbEnterPress == 5) {
             afficheReponse();
-            nbEnterPress = -1;
+            nbEnterPress = 0;
         }
-        nbEnterPress += 1;
     }
 }, false);
 
 
 function afficheCalcul() {
 
-    nbEnterPress=1;
+    nbEnterPress=2;
     essais=0;
 
     //alert(sessionStorage["choixExo"]);
 
-    var radios = document.getElementsByName('operation');
-
     for (var i = 0, length = radios.length; i < length; i++) {
         if (radios[i].checked) {
             //alert(radios[i].value);
-            var operation = radios[i].value;
+            operation = radios[i].value;
             break;
         }
     }
@@ -89,6 +95,19 @@ function afficheReponse() {
         document.getElementById("newCalcul").style.visibility = "visible";
         essais = 0;
         nbEnterPress=0;
+        document.getElementById("newCalcul").focus()
+
+        if(operation == "x"){
+            resMultRandOk+=1;
+            sessionStorage["resMultRandOk"]=resMultRandOk.toString();
+        }else if(operation == "+"){
+            resAddRandOK+=1;
+            sessionStorage["resAddRandOK"]=resAddRandOK.toString();
+        } else if (operation == "-"){
+            resSousRandOK+=1;
+            sessionStorage["resSousRandOK"]=resSousRandOK.toString();
+        }
+
     } else {
         //console.log(reponse);
         if (essais == 3) {
@@ -97,9 +116,22 @@ function afficheReponse() {
             document.getElementById("reponseUser").style.visibility = "hidden";
             document.getElementById("newCalcul").style.visibility = "visible";
             essais = 0;
+            document.getElementById("newCalcul").focus()
+            nbEnterPress=0;
+
+            if(operation == "x"){
+                resMultRandNO+=1;
+                sessionStorage["resMultRandNO"]=resMultRandNO.toString();
+            }else if(operation == "+"){
+                resAddRandNO+=1;
+                sessionStorage["resAddRandNO"]=resAddRandNO.toString();
+            } else if (operation == "-"){
+                resSousRandNO+=1;
+                sessionStorage["resSousRandNO"]=resSousRandNO.toString();
+            }
         } else {
             document.getElementById("resultat").innerHTML = "<p style=" + "font-size:25;color:red>Raté essaie encore !</p>";
-
+            nbEnterPress+=1;
             essais = essais + 1;
 
         }

@@ -12,12 +12,12 @@
 
 
 <div class="jumbotron text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-    
+
     <div id=typeOperation style="border:solid 5px;">
-        <div> 
+        <div>
             Quel type d'exercice veux-tu réaliser ? <br><br>
             <div class="radio">
-                <label><input id="add" type="radio" name="operation" value="+" >Addition <br></label>
+                <label><input id="add" type="radio" name="operation" value="+">Addition <br></label>
             </div>
             <div class="radio">
                 <label><input id="sou" type="radio" name="operation" value="-">Soustraction <br></label>
@@ -27,8 +27,8 @@
             </div>
         </div>
     </div>
-    
-    
+
+
     <h1 id="calculAFaire"></h1>
     <button id="newCalcul" type="button" onclick="afficheCalcul()">Nouveau calcul</button>
     <br>
@@ -36,25 +36,32 @@
 
 
     <div class="input-group" style="display:inline-flex">
-        <input style="visibility: hidden" type="number"  id="reponseUser" placeholder="Votre réponse" style="font-size:20px; display:inline; margin-bottom:5px; padding: 5px; width: 200px; height: 35px;" required name="reponseUser">
+        <input style="visibility: hidden" type="number" id="reponseUser" placeholder="Votre réponse"
+               style="font-size:20px; display:inline; margin-bottom:5px; padding: 5px; width: 200px; height: 35px;"
+               required name="reponseUser">
 
         <div class="input-group-btn">
-            <button style="visibility: hidden" onclick="afficheReponse()" class="btn btn-danger" style="height: 35px;" id="boutonValiderCalcul">Envoyer</button>
+            <button style="visibility: hidden" onclick="afficheReponse()" class="btn btn-danger" style="height: 35px;"
+                    id="boutonValiderCalcul">Envoyer
+            </button>
         </div>
     </div>
-    <div id="resultat" >
+    <div id="resultat">
 
     </div>
-    <div id="correction" >
+    <div id="correction">
 
     </div>
-    
+
     <br><br><br><br>
-    
+
     <div class="input-group-btn">
-        <button class="btn btn-danger" style="height: 35px;color: white;"><a href="index.html" style="color:white;">Retour choix exercice</a></button>
+        <p class="btn btn-danger" style="height: 35px;color: white;"><a href="index.html" style="color:white;">Retour
+            choix exercice</a></p>
     </div>
-    
+
+    <div><p class="btn btn-danger" style="height: 35px;color: white;"><a href="resultats.html" style="color:white;">Voir
+        les résultats</a></p></div>
 </div>
 
 

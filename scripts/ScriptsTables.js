@@ -1,38 +1,51 @@
 var nbEnterPress = 0;
 var essais = 0;
 
+var calculTable = 0;
+
+var resAddTabOk = 0;
+var resAddTabNO = 0;
+var resMultTabOk = 0;
+var resMultTabNO = 0;
+
+
+var radios = document.getElementsByName('operation');
+var operation;
 
 
 document.addEventListener('keypress', function (e) {
     if (e.keyCode == 13) {
         console.log("Nombre de fois touche 'entrée': " + nbEnterPress);
         document.getElementById("reponseUser").focus();
-        if (nbEnterPress == 0) {
+        if (nbEnterPress == 0||nbEnterPress == 1) {
             afficheCalcul();
-        } else if (nbEnterPress == 1 || nbEnterPress == 2 || nbEnterPress == 3) {
+        } else if ( nbEnterPress == 2 || nbEnterPress == 3 || nbEnterPress == 4) {
             afficheReponse();
-        } else if (nbEnterPress == 4) {
+        } else if (nbEnterPress == 5) {
             afficheReponse();
-            nbEnterPress = -1;
+            nbEnterPress = 0;
         }
-        nbEnterPress += 1;
     }
 }, false);
 
 function afficheCalcul() {
 
-    nbEnterPress=1;
+    nbEnterPress=2;
     essais=0;
 
+    calculTable+=1;
+    if (calculTable==11){
+        calculTable=1;
+    }
     //alert(sessionStorage["choixExo"]);
 
-    var radios = document.getElementsByName('operation');
+
 
     for (var i = 0, length = radios.length; i < length; i++) {
         if (radios[i].checked) {
             // do whatever you want with the checked radio
             //alert(radios[i].value);
-            var operation = radios[i].value;
+            operation = radios[i].value;
             // only one radio can be logically checked, don't check the rest
             break;
         }
@@ -49,7 +62,8 @@ function afficheCalcul() {
     var table = document.getElementById("table").value;
 
     function tableAdd() {
-        addit = Math.floor(Math.random() * 9) + 1;
+        addit = calculTable;
+            //Math.floor(Math.random() * 9) + 1;
         document.getElementById("newCalcul").style.visibility = "hidden";
         document.getElementById("reponseUser").value = null;
         document.getElementById("reponseUser").style.visibility = "visible";
@@ -64,7 +78,8 @@ function afficheCalcul() {
         console.log("ceci est une addition dont le résultat est : "+rep)
     }
     function tableMult() {
-        multiplicat = Math.floor(Math.random() * 9) + 1;
+        multiplicat = calculTable;
+            //Math.floor(Math.random() * 9) + 1;
         document.getElementById("newCalcul").style.visibility = "hidden";
         document.getElementById("reponseUser").value = null;
         document.getElementById("reponseUser").style.visibility = "visible";
@@ -92,6 +107,7 @@ function afficheReponse() {
 
     //var essais;
     console.log("Nombre d'essais: " + essais);
+    console.log("nbEnterPress: " + nbEnterPress);
     var x = document.getElementById("reponseUser");
     var text;
     text = x.value;
@@ -102,7 +118,16 @@ function afficheReponse() {
         document.getElementById("reponseUser").style.visibility = "hidden";
         document.getElementById("boutonValiderCalcul").style.visibility = "hidden";
         document.getElementById("newCalcul").style.visibility = "visible";
-        essais = 0;
+        essais = 6;
+        nbEnterPress=0;
+        if(operation == "x"){
+            resMultTabOk+=1;
+            sessionStorage["resMultTabOk"]=resMultTabOk.toString();
+        }else if(operation == "+"){
+            resAddTabOk+=1;
+            sessionStorage["resAddTabOk"]=resAddTabOk.toString();
+        }
+
     } else {
         //console.log(reponse);
         if (essais == 2) {
@@ -111,9 +136,18 @@ function afficheReponse() {
             document.getElementById("reponseUser").style.visibility = "hidden";
             document.getElementById("newCalcul").style.visibility = "visible";
             essais = 0;
+            nbEnterPress=0;
+            if(operation == "x"){
+                resMultTabNO+=1;
+                sessionStorage["resMultTabNO"]=resMultTabNO.toString();
+            }else if(operation == "+"){
+                resAddTabNO+=1;
+                sessionStorage["resAddTabNO"]=resAddTabNO.toString();
+            }
+
         } else {
             document.getElementById("resultat").innerHTML = "<p style=" + "font-size:25;color:red>Raté essaie encore !</p>";
-
+            nbEnterPress+=1;
             essais = essais + 1;
 
         }
